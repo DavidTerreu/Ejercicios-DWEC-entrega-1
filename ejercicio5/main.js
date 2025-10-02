@@ -1,103 +1,55 @@
 'use strict';
 
-console.log("Buenos dias desde visual studio code");
+let colores = ["red", "yellow", "green", "white", "blue", "brown", "pink", "black"];
+let palabras = [];
+let auxColor = [];
+let auxPalabra = [];
+let arrayFinal = [];
+let col = 0;
+let pal = 0;
 
-// Number
-let number = 5;
-console.log(typeof number);
-number = "5";
-console.log(typeof number);
-
-let undefinedVariable;
-console.log(typeof undefinedVariable);
-
-let nullVariable = null;
-console.log(typeof nullVariable);
-
-/*
-variable = "Hola";
-numberVariable = parseInt(variable);
-console.log(numberVariable, typeof numberVariable);
-*/
-
-/*
-//Ejercicio 1
-var A, B, C, D, E, res;
-A = 23;
-B = 15;
-C = 3;
-D = 2;
-E = 10;
-
-res = A + (B * (C/D)) - E;
-console.log(res);
-
-res -= 5;
-console.log(res);
-
-res--;
-console.log(res);
-
-//Ejercicio 2
-var enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre;
-enero = 1;
-febrero = 2;
-marzo = 3;
-abril = 4;
-mayo = 5;
-junio = 6;
-julio = 7;
-agosto = 8;
-septiembre = 9;
-octubre = 10;
-noviembre = 11;
-diciembre = 12;
-
-console.log(enero > diciembre);
-console.log(junio < julio);
-console.log(marzo > febrero && septiembre > octubre);
-console.log(marzo > febrero || septiembre > octubre);
-
-//Ejercicio 3
-
-var num1, num2, num3;
-num1 = 5;
-num2 = 8;
-num3 = 14;
-
-res = (num1 + num2 + num3) / 3;
-console.log(res);
-
-alert("Hola caracola");
-let mensajeAlerta = prompt("Introduce un mensaje");
-alert(mensajeAlerta);
-let conforme = confirm("¿Estás conforme?");
-
-
-
-document.writeln("Hola mundo 2");
-let nombre = "David";
-document.writeln("<h1>Hola " + nombre + "</h1>");
-*/
-
-//Ejercicios alertas
-//Ejercicio 1
-
-//Ejercicio 2
-/*let nombre = prompt("¿Cuál es tu nombre?");
-alert("Bienvenid@ a mi página " + nombre);*/
-//Ejercicio 3
-let res = 0;
-let nombre = prompt("¿Qué producto quieres comprar?");
-let precio = prompt("¿Cuá es el precio del producto?");
-let unidades = prompt("¿Cuántas unidades del producto quieres?");
-precio = parseFloat(precio);
-unidades = parseInt(unidades);
-res = precio * unidades;
-alert(`Del producto ${nombre} has comprado ${unidades} unidades. Y el precio final es ${res} euros.`);
-let confirmacion = confirm("¿Quieres confirmar la compra?");
-if (confirmacion) {
-    alert("Compra confirmada");
-} else {
-    alert("Compra rechazada");
+document.writeln("Introduce 8 palabras:");
+document.writeln("<br>");
+document.writeln("<br>");
+for (let i = 0; i < 8; i++) {
+    palabras[i] = prompt("Introduce una palabra ");
 }
+
+for (let i = 0; i < palabras.length; i++) {
+    document.writeln(palabras[i] + " ");
+}
+
+document.writeln("<br>");
+document.writeln("<br>");
+document.writeln("Array final:");
+
+let esColor = false;
+
+for (let i = 0; i < palabras.length; i++) {
+    esColor = false;
+    for (let j = 0; j < colores.length; j++) {
+        if (palabras[i] === colores[j]) {
+            auxColor[col] = palabras[i];
+            col++;
+            esColor = true;
+            break;
+        }
+        if (!esColor && j === colores.length -1) {
+            auxPalabra[pal] = palabras[i];
+            pal++;
+        }
+    }
+}
+
+for (let i = 0; i < auxColor.length; i++) {
+    arrayFinal[i] = auxColor[i];
+}
+for (let i = 0; i < auxPalabra.length; i++) {
+    arrayFinal[auxColor.length + i] = auxPalabra[i];
+}
+
+document.writeln("<br>");
+for (let i = 0; i < arrayFinal.length; i++) {
+    document.writeln(arrayFinal[i] + " ");
+}
+document.writeln("<br>");
